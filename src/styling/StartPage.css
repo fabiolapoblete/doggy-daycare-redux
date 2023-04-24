@@ -1,0 +1,11 @@
+.startPage {
+    height: 100vh;
+    background-image: url("../assets/startPage.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.1rem;
+    padding: 6.1rem 3.6rem;
+}
