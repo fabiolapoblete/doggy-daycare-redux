@@ -12,6 +12,8 @@ function DogsPage() {
     return state.dogs;
   });
 
+  console.log(dogs);
+
   //Skapar en kopia av datan i store för att kunna använda som default
   // const [originalDogs, setOriginalDogs] = useState(dogs);
 
@@ -28,7 +30,7 @@ function DogsPage() {
           onChange={(event) => {
             if (event.target.value == "2") {
               dispatch(filterDogs(dogs.filter((dog) => dog.present === true)));
-            } else if (event.target.value == "1") {
+            } else if (event.target.value == "1" || event.target.value == "0") {
               dispatch(setDogs());
             }
           }}

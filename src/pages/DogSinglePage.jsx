@@ -1,36 +1,38 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styling/DogSinglePage.css";
 
 function DogSinglePage() {
   const location = useLocation();
   const dog = location.state.dog;
+
+  const navigate = useNavigate();
   console.log(dog);
+
+  const handleClick = () => {
+    navigate("/ourDogs");
+  };
 
   return (
     <main className="singleDog__container">
-      <figure className="singleDog__img">
-        <img src={dog.img} alt="A dog" />
-      </figure>
-      <section className="singleDog__name">
-        <h1>{dog.name}</h1>
-      </section>
-      <section className="singleDog__info">
-        <h3 className="singleDog__info--header">This is {dog.name} :</h3>
-        <section className="singleDog__info--details">
-          <p>
-            <b>Age:</b> {dog.age} years
-          </p>
-          <p>
-            <b>Gender:</b> {dog.gender}
-          </p>
-          <p>
-            <b>Breed:</b> {dog.breed}
-          </p>
-          <p>
-            <b>Owner:</b> {dog.owner}
-          </p>
-        </section>
-      </section>
+      <article className="singleDog__dogCard">
+        <img
+          className="singleDog__dogCard--img"
+          src={dog.img}
+          alt="Picture of a dog"
+        />
+        <ul className="singleDog__dogCard--info">
+          <li>
+            <section className="singleDog__dogCard--name">
+              {dog.name}
+              <img src={dog.genderIcon} alt="Gender icon" />
+            </section>
+          </li>
+          <li>Age: {dog.age} years</li>
+          <li>Breed: {dog.breed}</li>
+          <li>Owner: {dog.owner}</li>
+        </ul>
+      </article>
+      <button onClick={handleClick}>Back</button>
     </main>
   );
 }
